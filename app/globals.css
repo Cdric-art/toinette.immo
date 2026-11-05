@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Palette Toinette (cf. couleurs.png) */
+  --color-ink: #000000;
+  --color-fond: #f6f6f6;
+  --color-gris: #5a5a5a;
+  --color-panel: #e6e6e6;
+
+  --color-conciergerie: #ff3c66;
+  --color-conciergerie-tint: #f6e3e8;
+  --color-gestion: #0097b9;
+  --color-gestion-tint: #dcecf0;
+  --color-syndic: #ff5900;
+  --color-syndic-tint: #f6e5dd;
+
+  /* Polices : Barlow (texte) + police d'affichage condensée (titres) */
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-face), "Arial Narrow", sans-serif;
+
+  --shadow-card: 3px 4px 7px rgb(0 0 0 / 0.16);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  /* Laisse la place à l'en-tête collant lors des sauts vers les ancres */
+  scroll-padding-top: 8.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-fond);
+  color: var(--color-ink);
+}
+
+@utility display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 54rem;
+  padding-inline: 1.25rem;
 }

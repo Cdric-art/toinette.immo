@@ -55,7 +55,7 @@ export function FeeTable({
           Faites glisser le tableau pour voir toutes les offres →
         </p>
       )}
-      <div className={comparative ? "-mx-5 overflow-x-auto px-5" : ""}>
+      <div className={comparative ? "-mx-5 overflow-x-auto" : ""}>
         <table
           className={`w-full border-collapse text-[0.85rem] ${comparative ? "min-w-[38rem] table-fixed" : ""}`}
         >

@@ -11,9 +11,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/honoraires/" },
 };
 
-function ServiceTitle({ theme, children }: { theme: ThemeName; children: ReactNode }) {
+function ServiceTitle({
+  theme,
+  children,
+}: {
+  theme: ThemeName;
+  children: ReactNode;
+}) {
   return (
-    <h2 className={`display mt-10 mb-8 text-[2.5rem] md:text-[2.9rem] ${themes[theme].text}`}>
+    <h2
+      className={`display mt-10 mb-8 text-[2.5rem] md:text-[2.9rem] ${themes[theme].text}`}
+    >
       {children}
     </h2>
   );
@@ -28,7 +36,9 @@ function SubTitle({ children, sub }: { children: ReactNode; sub?: ReactNode }) {
   );
 }
 
-const pink = (text: string) => <Small className="text-conciergerie">{text}</Small>;
+const pink = (text: string) => (
+  <Small className="text-conciergerie">{text}</Small>
+);
 
 export default function Honoraires() {
   return (
@@ -56,13 +66,28 @@ export default function Honoraires() {
               ["Gestion des réservations", "", Yes, Yes],
               ["Fourniture du linge de maison", "", Yes, Yes],
               ["Fourniture des consommables", "", Yes, Yes],
-              ["Accueil des voyageurs", "", pink("Remise de clés en mains propres"), pink("Autonome par boîte à clés")],
+              [
+                "Accueil des voyageurs",
+                "",
+                pink("Remise de clés en mains propres"),
+                pink("Autonome par boîte à clés"),
+              ],
               ["Assistance aux voyageurs 7j/7", "", Yes, Yes],
               ["Inspections de fin de séjour", "", Yes, Yes],
-              ["Ménage de fin de séjour", "", <Small key="m1">Sur devis, à la charge des voyageurs</Small>, <Small key="m2">Sur devis, à la charge des voyageurs</Small>],
+              [
+                "Ménage de fin de séjour",
+                "",
+                <Small key="m1">Sur devis, à la charge des voyageurs</Small>,
+                <Small key="m2">Sur devis, à la charge des voyageurs</Small>,
+              ],
               ["Blanchisserie", "", Yes, Yes],
               ["Petite maintenance courante", "", Yes, Yes],
-              ["Gestion des sinistres", "", <Small key="s1">Déclaration Aircover Airbnb</Small>, <Small key="s2">Déclaration Aircover Airbnb</Small>],
+              [
+                "Gestion des sinistres",
+                "",
+                <Small key="s1">Déclaration Aircover Airbnb</Small>,
+                <Small key="s2">Déclaration Aircover Airbnb</Small>,
+              ],
             ]}
           />
           <TableNote>
@@ -78,10 +103,22 @@ export default function Honoraires() {
             caption="Coup de pouce ponctuel"
             rows={[
               ["Accueil voyageurs ponctuel", P("30 €", "par déplacement *")],
-              ["Arrosage de plantes", P("30 €", "par déplacement (dans la limite de 15 minutes sur place) *")],
+              [
+                "Arrosage de plantes",
+                P(
+                  "30 €",
+                  "par déplacement (dans la limite de 15 minutes sur place) *",
+                ),
+              ],
               ["Relève de courrier", P("30 €", "par déplacement *")],
-              ["Présence à domicile travaux", P("30 €", "par déplacement +", "12 €", "/ heure")],
-              ["Présence à domicile livraison", P("30 €", "par déplacement +", "12 €", "/ heure")],
+              [
+                "Présence à domicile travaux",
+                P("30 €", "par déplacement +", "12 €", "/ heure"),
+              ],
+              [
+                "Présence à domicile livraison",
+                P("30 €", "par déplacement +", "12 €", "/ heure"),
+              ],
             ]}
           />
           <TableNote>
@@ -100,9 +137,15 @@ export default function Honoraires() {
           <FeeTable
             caption="Honoraires de gestion locative"
             columns={[
-              { title: "Mise en location", price: P("360 €", "+", "9€", "/ m²") },
+              {
+                title: "Mise en location",
+                price: P("360 €", "+", "9€", "/ m²"),
+              },
               { title: "Gestion locative", price: P("6%", "des loyers *") },
-              { title: "Gestion locative + garantie", price: P("9%", "des loyers *") },
+              {
+                title: "Gestion locative + garantie",
+                price: P("9%", "des loyers *"),
+              },
             ]}
             rows={[
               ["Estimation de loyer", Yes, "", ""],
@@ -132,7 +175,13 @@ export default function Honoraires() {
           <FeeTable
             caption="Démarches et représentation"
             rows={[
-              ["Démarche administrative", P("120 €", "par démarche (permis de louer, changement d’usage)")],
+              [
+                "Démarche administrative",
+                P(
+                  "120 €",
+                  "par démarche (permis de louer, changement d’usage)",
+                ),
+              ],
               ["Représentation en AG", P("120 €", "par heure")],
               ["Gestion de sinistre complexe", P("120 €", "par sinistre")],
               ["Constitution dossier contentieux", P("120 €", "par dossier")],
@@ -156,10 +205,19 @@ export default function Honoraires() {
             valueColumn="narrow"
             rows={[
               ["Visite et vérification annuelle de la copropriété", Yes],
-              ["Assemblée générale annuelle (préparation, convocation, tenue et information)", Yes],
+              [
+                "Assemblée générale annuelle (préparation, convocation, tenue et information)",
+                Yes,
+              ],
               ["Relations avec le conseil syndical", Yes],
-              ["Gestion des opérations financières et comptabilité générale de la copropriété", Yes],
-              ["Administration et gestion de la copropriété en conformité avec le règlement de copropriété", Yes],
+              [
+                "Gestion des opérations financières et comptabilité générale de la copropriété",
+                Yes,
+              ],
+              [
+                "Administration et gestion de la copropriété en conformité avec le règlement de copropriété",
+                Yes,
+              ],
               ["Assurances et déclaration de sinistre", Yes],
               ["Gestion du personnel", Yes],
             ]}
@@ -176,26 +234,74 @@ export default function Honoraires() {
             caption="Prestations particulières hors forfait annuel"
             valueColumn="narrow"
             rows={[
-              ["Assemblées générales supplémentaires", P("300 €", "par assemblée")],
-              ["Dépassement des plages horaires de référence convenues", P("60 €", "par heure")],
-              ["Réunions supplémentaires avec le conseil syndical", P("60 €", "par heure")],
-              ["Visites supplémentaires de la copropriété", P("60 €", "par heure")],
-              ["Établissement du règlement de copropriété", P("1200 €", "par démarche")],
-              ["Modification du règlement de copropriété", <Small key="a">Sur décision de l’assemblée générale</Small>],
-              ["Publication de l’état descriptif de division et du règlement de copropriété", <Small key="b">Frais réels de publication</Small>],
-              ["Déplacements sur les lieux d’un sinistre", P("60 €", "par heure")],
-              ["Prise de mesures conservatoires suite à un sinistre", <Small key="c">Offert</Small>],
+              [
+                "Assemblées générales supplémentaires",
+                P("300 €", "par assemblée"),
+              ],
+              [
+                "Dépassement des plages horaires de référence convenues",
+                P("60 €", "par heure"),
+              ],
+              [
+                "Réunions supplémentaires avec le conseil syndical",
+                P("60 €", "par heure"),
+              ],
+              [
+                "Visites supplémentaires de la copropriété",
+                P("60 €", "par heure"),
+              ],
+              ["Établissement du règlement de copropriété", P("1200 €")],
+              [
+                "Modification du règlement de copropriété",
+                <Small key="a">Sur décision de l’assemblée générale</Small>,
+              ],
+              [
+                "Publication de l’état descriptif de division et du règlement de copropriété",
+                <Small key="b">Frais réels de publication</Small>,
+              ],
+              [
+                "Déplacements sur les lieux d’un sinistre",
+                P("60 €", "par heure"),
+              ],
+              [
+                "Prise de mesures conservatoires suite à un sinistre",
+                <Small key="c">Offert</Small>,
+              ],
               ["Assistance aux mesures d’expertise", P("60 €", "par heure")],
-              ["Suivi du dossier auprès de l’assureur", P("120 €", "par sinistre")],
-              ["Travaux et études techniques", <Small key="d">Sur décision de l’assemblée générale</Small>],
-              ["Mise en demeure par lettre recommandée accusée de réception", P("30 €")],
+              [
+                "Suivi du dossier auprès de l’assureur",
+                P("120 €", "par sinistre"),
+              ],
+              [
+                "Travaux et études techniques",
+                <Small key="d">Sur décision de l’assemblée générale</Small>,
+              ],
+              [
+                "Mise en demeure par lettre recommandée accusée de réception",
+                P("30 €"),
+              ],
               ["Constitution dossier contentieux", P("120 €", "par dossier")],
               ["Suivi du dossier transmis à l’avocat", P("60 €", "par heure")],
-              ["Préparation des décisions d’acquisition ou de dispositions de parties communes", <Small key="e">Sur décision de l’assemblée générale</Small>],
-              ["Reprise de la comptabilité sur exercice(s) antérieur(s) non approuvés ou non réparti(s)", P("600 €", "par exercice")],
-              ["Représentation du syndicat aux assemblées d’une structure extérieure", P("60 €", "par heure")],
-              ["Constitution et suivi du dossier d’emprunt souscrit au nom du syndicat", P("60 €", "par heure")],
-              ["Constitution et suivi d’un dossier de subvention au profit du syndicat", P("60 €", "par heure")],
+              [
+                "Préparation des décisions d’acquisition ou de dispositions de parties communes",
+                <Small key="e">Sur décision de l’assemblée générale</Small>,
+              ],
+              [
+                "Reprise de la comptabilité sur exercice(s) antérieur(s) non approuvés ou non réparti(s)",
+                P("600 €", "par exercice"),
+              ],
+              [
+                "Représentation du syndicat aux assemblées d’une structure extérieure",
+                P("60 €", "par heure"),
+              ],
+              [
+                "Constitution et suivi du dossier d’emprunt souscrit au nom du syndicat",
+                P("60 €", "par heure"),
+              ],
+              [
+                "Constitution et suivi d’un dossier de subvention au profit du syndicat",
+                P("60 €", "par heure"),
+              ],
               ["Immatriculation initiale du syndicat", P("120 €")],
             ]}
           />
@@ -203,26 +309,52 @@ export default function Honoraires() {
         </div>
 
         <div id="syndic-frais-coproprietaires" className="mt-12">
-          <SubTitle>Frais et honoraires imputables aux seuls copropriétaires</SubTitle>
+          <SubTitle>
+            Frais et honoraires imputables aux seuls copropriétaires
+          </SubTitle>
           <FeeTable
             caption="Frais et honoraires imputables aux seuls copropriétaires"
             valueColumn="narrow"
             rows={[
-              ["Mise en demeure par lettre recommandée avec accusé de réception", P("30 €")],
+              [
+                "Mise en demeure par lettre recommandée avec accusé de réception",
+                P("30 €"),
+              ],
               ["Relance après mise en demeure", P("30 €")],
-              ["Conclusion d’un protocole d’accord", <Small key="a">Offert</Small>],
+              [
+                "Conclusion d’un protocole d’accord",
+                <Small key="a">Offert</Small>,
+              ],
               ["Frais de constitution d’hypothèque", P("120 €")],
               ["Frais de mainlevée d’hypothèque", P("120 €")],
               ["Dépôt d’une requête en injonction de payer", P("120 €")],
-              ["Constitution du dossier transmis à l’auxiliaire de justice", P("120 €")],
+              [
+                "Constitution du dossier transmis à l’auxiliaire de justice",
+                P("120 €"),
+              ],
               ["Suivi du dossier transmis à l’avocat", P("60 €", "par heure")],
               ["Établissement de l’état daté", P("120 €")],
               ["Opposition sur mutation", P("120 €")],
-              ["Délivrance d’une copie du carnet d’entretien", <Small key="b">Offert</Small>],
-              ["Délivrance d’une copie des diagnostics techniques", <Small key="c">Offert</Small>],
-              ["Délivrance des informations nécessaires à la réalisation d’un DPE individuel", <Small key="d">Offert</Small>],
-              ["Délivrance d’une copie ou d’un extrait de PV d’assemblée générale", <Small key="e">Offert</Small>],
-              ["Assemblée générale supplémentaire à la demande d’un ou plusieurs copropriétaires", P("300 €", "par assemblée")],
+              [
+                "Délivrance d’une copie du carnet d’entretien",
+                <Small key="b">Offert</Small>,
+              ],
+              [
+                "Délivrance d’une copie des diagnostics techniques",
+                <Small key="c">Offert</Small>,
+              ],
+              [
+                "Délivrance des informations nécessaires à la réalisation d’un DPE individuel",
+                <Small key="d">Offert</Small>,
+              ],
+              [
+                "Délivrance d’une copie ou d’un extrait de PV d’assemblée générale",
+                <Small key="e">Offert</Small>,
+              ],
+              [
+                "Assemblée générale supplémentaire à la demande d’un ou plusieurs copropriétaires",
+                P("300 €", "par assemblée"),
+              ],
             ]}
           />
           <TableNote>Prix TTC</TableNote>
